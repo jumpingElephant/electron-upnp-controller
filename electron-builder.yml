@@ -1,0 +1,28 @@
+appId: org.example.raumfeld-controller
+productName: Raumfeld Controller
+directories:
+  buildResources: build
+  output: dist
+files:
+  - out/**
+  - resources/** # runtime window icon (src/main/index.ts)
+  - package.json
+asar: true
+linux:
+  icon: build/icon.png # PNG, >=512px; builder derives the size set
+  target: [AppImage, deb]
+  category: AudioVideo
+  maintainer: Alexander
+mac:
+  icon: build/icon.png # converted to .icns at build time
+  target: [dmg]
+  category: public.app-category.music
+  extendInfo:
+    NSLocalNetworkUsageDescription: Raumfeld Controller needs local network access to find and control your speakers.
+    NSBonjourServices:
+      - _ssdp._udp
+win:
+  icon: build/icon.png # converted to a multi-size .ico (needs >=256px)
+  target: [nsis]
+nsis:
+  oneClick: false

@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<scpd xmlns="urn:schemas-upnp-org:service-1-0">
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+
+    <actionList>
+
+        <action>
+            <name>GetPublicKey</name>
+            <argumentList>
+                <argument>
+                    <name>Key</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_GenericString</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetRevision</name>
+            <argumentList>
+                <argument>
+                    <name>Revision</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>Revision</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>SetPreferences</name>
+            <argumentList>
+                <argument>
+                    <name>Preferences</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_GenericString</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>LeastCommonChangedNode</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_GenericString</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ExpectedRevision</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>Revision</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>OnConflict</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>ARG_TYPE_OnConflict</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetPreferences</name>
+            <argumentList>
+                <argument>
+                    <name>PublicKey</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_GenericString</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Preferences</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_GenericString</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Revision</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>Revision</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetDevice</name>
+            <argumentList>
+                <argument>
+                    <name>Service</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ServiceType</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>UniqueDeviceName</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_GenericString</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+    </actionList>
+
+    <serviceStateTable>
+
+        <stateVariable sendEvents="yes">
+            <name>LastChange</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="yes">
+            <name>Revision</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_GenericString</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="yes">
+            <name>ARG_TYPE_OnConflict</name>
+            <dataType>string</dataType>
+            <allowedValueList>
+                <allowedValue>ForceOverwrite</allowedValue>
+                <allowedValue>Cancel</allowedValue>
+            </allowedValueList>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_ServiceType</name>
+            <allowedValueList>
+                <allowedValue>meta-server</allowedValue>
+                <allowedValue>renderer</allowedValue>
+            </allowedValueList>
+            <dataType>string</dataType>
+        </stateVariable>
+
+    </serviceStateTable>
+</scpd>

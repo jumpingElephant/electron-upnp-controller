@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0" xmlns:raumfeld="urn:schemas-raumfeld-com:device">
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+    <device>
+        <deviceType>urn:schemas-raumfeld-com:device:ConfigDevice:1</deviceType>
+        <friendlyName>Raumfeld ConfigDevice</friendlyName>
+        <UDN>uuid:d7b2d9f4-e31d-4381-a5ec-d8347268a958</UDN>
+        <serviceList>
+            <service>
+                <serviceType>urn:schemas-raumfeld-com:service:ConfigService:1</serviceType>
+                <serviceId>urn:raumfeld-com:serviceId:ConfigService</serviceId>
+                <SCPDURL>/ConfigService.xml</SCPDURL>
+                <controlURL>/ConfigService/Control</controlURL>
+                <eventSubURL>/ConfigService/Event</eventSubURL>
+            </service>
+        </serviceList>
+        <manufacturer>Lautsprecher Teufel GmbH</manufacturer>
+        <manufacturerURL>https://www.teufel.de/</manufacturerURL>
+        <modelName>Teufel One M</modelName>
+        <modelNumber>1</modelNumber>
+        <serialNumber>12c14a8f-8bd8-4f9b-9d50-5e8c553f70ba</serialNumber>
+        <raumfeld:protocolVersion>12345</raumfeld:protocolVersion>
+        <raumfeld:hardwareType>19</raumfeld:hardwareType>
+    </device>
+</root>

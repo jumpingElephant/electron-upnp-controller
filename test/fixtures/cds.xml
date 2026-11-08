@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<scpd xmlns="urn:schemas-upnp-org:service-1-0">
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+
+    <actionList>
+        <action>
+            <name>Browse</name>
+            <argumentList>
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>BrowseFlag</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_BrowseFlag</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Filter</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Filter</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>StartingIndex</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>RequestedCount</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>SortCriteria</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Result</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Result</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>NumberReturned</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>TotalMatches</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>UpdateID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_UpdateID</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>Search</name>
+            <argumentList>
+                <argument>
+                    <name>ContainerID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>SearchCriteria</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SearchCriteria</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Filter</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Filter</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>StartingIndex</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>RequestedCount</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>SortCriteria</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Result</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Result</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>NumberReturned</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>TotalMatches</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Count</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>UpdateID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_UpdateID</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>Shuffle</name>
+            <argumentList>
+                <argument>
+                    <name>ContainerID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>Selection</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_String</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>PlaylistID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>PlaylistMetadata</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Result</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetSearchCapabilities</name>
+            <argumentList>
+                <argument>
+                    <name>SearchCaps</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>SearchCapabilities</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+        <action>
+            <name>GetSortCapabilities</name>
+            <argumentList>
+                <argument>
+                    <name>SortCaps</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>SortCapabilities</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>CreateReference</name>
+            <argumentList>
+
+                <argument>
+                    <name>ContainerID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>NewID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>AddContainerToQueue</name>
+            <argumentList>
+
+                <argument>
+                    <name>QueueID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ContainerID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>SourceID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>SearchCriteria</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SearchCriteria</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>SortCriteria</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SortCriteria</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>StartIndex</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>EndIndex</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>Position</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>AddItemToQueue</name>
+            <argumentList>
+
+                <argument>
+                    <name>QueueID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>Position</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>RemoveFromQueue</name>
+            <argumentList>
+
+                <argument>
+                    <name>QueueID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>FromPosition</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ToPosition</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ContainerUpdateID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_UpdateID</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>CreateQueue</name>
+            <argumentList>
+
+                <argument>
+                    <name>DesiredName</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Name</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ContainerID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>GivenName</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Name</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>QueueID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>MetaData</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Result</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>RenameQueue</name>
+            <argumentList>
+
+                <argument>
+                    <name>QueueID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>DesiredName</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Name</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>GivenName</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Name</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+
+        <action>
+            <name>MoveInQueue</name>
+            <argumentList>
+
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>NewPosition</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ContainerUpdateID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_UpdateID</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+
+        <action>
+            <name>DestroyObject</name>
+            <argumentList>
+
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>ResetDatabase</name>
+            <argumentList>
+                <argument>
+                    <name>Scope</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Scope</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetSystemUpdateID</name>
+            <argumentList>
+                <argument>
+                    <name>Id</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>SystemUpdateID</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetIndexerStatus</name>
+            <argumentList>
+                <argument>
+                    <name>Status</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>IndexerStatus</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetSourceInfo</name>
+            <argumentList>
+                <argument>
+                    <name>SourceID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SourceID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>NumTracks</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_NumTracks</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>TotalSize</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_TotalSize</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>TotalDuration</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_TotalDuration</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>IndexerResult</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_IndexerResult</relatedStateVariable>
+                </argument>
+
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>RescanSource</name>
+            <argumentList>
+                <argument>
+                    <name>SourceID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_SourceID</relatedStateVariable>
+                </argument>
+                <argument>
+                    <name>RescanMode</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_RescanMode</relatedStateVariable>
+                </argument>
+            </argumentList>
+        </action>
+
+        <action>
+            <name>QueryDatabaseState</name>
+            <argumentList>
+
+                <argument>
+                    <name>CurrentNumResources</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>CriticalNumResources</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>CurrentDiskUsage</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>MaxDiskUsage</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>AssignStationButton</name>
+            <argumentList>
+
+                <argument>
+                    <name>Renderer</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_String</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>Button</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>OptionalMetadata</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_JsonObject</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+        <action>
+            <name>GetStationButtonAssignment</name>
+            <argumentList>
+
+                <argument>
+                    <name>Renderer</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_String</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>Button</name>
+                    <direction>in</direction>
+                    <relatedStateVariable>A_ARG_TYPE_Index</relatedStateVariable>
+                </argument>
+
+                <argument>
+                    <name>ObjectID</name>
+                    <direction>out</direction>
+                    <relatedStateVariable>A_ARG_TYPE_ObjectID</relatedStateVariable>
+                </argument>
+
+            </argumentList>
+        </action>
+
+    </actionList>
+    <serviceStateTable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_PlayListName</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_PlayListURI</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_ZoneUDN</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_BrowseFlag</name>
+            <dataType>string</dataType>
+            <allowedValueList>
+                <allowedValue>BrowseMetadata</allowedValue>
+                <allowedValue>BrowseDirectChildren</allowedValue>
+            </allowedValueList>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_RescanMode</name>
+            <dataType>string</dataType>
+            <allowedValueList>
+                <allowedValue>FindNewTracks</allowedValue>
+                <allowedValue>DoFullRescan</allowedValue>
+            </allowedValueList>
+        </stateVariable>
+        <stateVariable sendEvents="yes">
+            <name>SystemUpdateID</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="yes">
+            <name>ContainerUpdateIDs</name>
+            <dataType>string</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_Count</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_SortCriteria</name>
+            <dataType>string</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>SortCapabilities</name>
+            <dataType>string</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_Index</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_ObjectID</name>
+            <dataType>string</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_UpdateID</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_Result</name>
+            <dataType>string</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>SearchCapabilities</name>
+            <dataType>string</dataType>
+        </stateVariable>
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_Filter</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="yes">
+            <name>IndexerStatus</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_SearchCriteria</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_SourceID</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_Name</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_String</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_NumTracks</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_TotalSize</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_TotalDuration</name>
+            <dataType>ui4</dataType>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_IndexerResult</name>
+            <dataType>string</dataType>
+            <allowedValueList>
+                <allowedValue>NONE</allowedValue>
+                <allowedValue>SUCCESS</allowedValue>
+                <allowedValue>MOUNTING_FAILED</allowedValue>
+                <allowedValue>UNREACHABLE</allowedValue>
+            </allowedValueList>
+        </stateVariable>
+
+        <stateVariable sendEvents="yes">
+            <name>A_ARG_TYPE_Scope</name>
+            <dataType>string</dataType>
+            <allowedValueList>
+                <allowedValue>RESET_ALL</allowedValue>
+                <allowedValue>RESET_USERDATA</allowedValue>
+                <allowedValue>RESET_INDEX</allowedValue>
+            </allowedValueList>
+        </stateVariable>
+
+        <stateVariable sendEvents="no">
+            <name>A_ARG_TYPE_JsonObject</name>
+            <dataType>string</dataType>
+        </stateVariable>
+
+    </serviceStateTable>
+</scpd>

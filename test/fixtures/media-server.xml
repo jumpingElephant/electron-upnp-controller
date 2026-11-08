@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns="urn:schemas-upnp-org:device-1-0" xmlns:raumfeld="urn:schemas-raumfeld-com:device">
+    <specVersion>
+        <major>1</major>
+        <minor>0</minor>
+    </specVersion>
+    <device>
+        <deviceType>urn:schemas-upnp-org:device:MediaServer:1</deviceType>
+        <friendlyName>Raumfeld MediaServer</friendlyName>
+        <UDN>uuid:eebcbd75-d71f-4bf2-9f60-178eea1d636a</UDN>
+        <modelName>Teufel One M</modelName>
+        <iconList>
+            <icon>
+                <mimetype>image/png</mimetype>
+                <width>48</width>
+                <height>48</height>
+                <depth>24</depth>
+                <url>/icons/teufel-48.png</url>
+            </icon>
+        </iconList>
+        <serviceList>
+            <service>
+                <serviceType>urn:schemas-upnp-org:service:ContentDirectory:1</serviceType>
+                <serviceId>urn:upnp-org:serviceId:ContentDirectory</serviceId>
+                <SCPDURL>/cds.xml</SCPDURL>
+                <controlURL>/cd/Control</controlURL>
+                <eventSubURL>/cd/Event</eventSubURL>
+            </service>
+            <service>
+                <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+                <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+                <SCPDURL>cm.xml</SCPDURL>
+                <controlURL>/cm/Control</controlURL>
+                <eventSubURL>/cm/Event</eventSubURL>
+            </service>
+        </serviceList>
+        <manufacturer>Lautsprecher Teufel GmbH</manufacturer>
+        <manufacturerURL>https://www.teufel.de/</manufacturerURL>
+        <modelNumber>1</modelNumber>
+        <serialNumber>12c14a8f-8bd8-4f9b-9d50-5e8c553f70ba</serialNumber>
+        <raumfeld:protocolVersion>12345</raumfeld:protocolVersion>
+        <raumfeld:hardwareType>19</raumfeld:hardwareType>
+    </device>
+</root>

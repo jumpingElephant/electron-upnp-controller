@@ -1,0 +1,19 @@
+HTTP/1.1 200 OK
+CACHE-CONTROL: max-age=1800
+LOCATION: http://192.168.178.32:52475/d142b20a-b41b-437a-a7bf-62e9c8c2d8dc.xml
+ST: urn:schemas-upnp-org:device:MediaRenderer:1
+USN: uuid:d142b20a-b41b-437a-a7bf-62e9c8c2d8dc::urn:schemas-upnp-org:device:MediaRenderer:1
+
+NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+CACHE-CONTROL: max-age=1800
+LOCATION: 192.168.178.32
+NT: upnp:rootdevice
+NTS: ssdp:alive
+USN: uuid:0b5a682f-0000-0000-0000-000000000000::upnp:rootdevice
+
+NOTIFY * HTTP/1.1
+HOST: 239.255.255.250:1900
+NT: uuid:eebcbd75-d71f-4bf2-9f60-178eea1d636a
+NTS: ssdp:byebye
+USN: uuid:eebcbd75-d71f-4bf2-9f60-178eea1d636a

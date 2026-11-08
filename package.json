@@ -1,0 +1,63 @@
+{
+  "name": "raumfeld-controller",
+  "desktopName": "Raumfeld Controller",
+  "version": "0.1.0",
+  "description": "Small desktop controller for Teufel Raumfeld speakers via UPnP",
+  "main": "./out/main/index.js",
+  "author": "Alexander",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "dev:debug": "electron-vite dev --sourcemap --inspect=9229 --remoteDebuggingPort=9222",
+    "dev:debug-brk": "electron-vite dev --sourcemap --inspectBrk=9229 --remoteDebuggingPort=9222",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.node.json && svelte-check --tsconfig tsconfig.web.json",
+    "lint": "eslint src test",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:debug": "vitest run --inspect-brk=9230 --no-file-parallelism",
+    "smoke": "tsx scripts/smoke.mts",
+    "smoke:debug": "tsx --inspect-brk=9231 scripts/smoke.mts",
+    "dist": "electron-vite build && electron-builder"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "@types/node": "^26.6.6",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
+    "electron-vite": "^6.0.0",
+    "eslint": "^10.14.0",
+    "prettier": "^3.9.10",
+    "prettier-plugin-svelte": "^4.1.1",
+    "svelte": "^5.57.3",
+    "svelte-check": "^4.7.8",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.72.1",
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "fast-xml-parser": "^5.12.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  },
+  "build": {
+    "directories": {
+      "buildResources": "build"
+    },
+    "mac": {
+      "icon": "resources/icon.png"
+    },
+    "linux": {
+      "icon": "resources/icon.png"
+    },
+    "appId": "org.example.raumfeld-controller",
+    "productName": "Raumfeld Controller",
+    "icon": "resources/icon.png"
+  }
+}
