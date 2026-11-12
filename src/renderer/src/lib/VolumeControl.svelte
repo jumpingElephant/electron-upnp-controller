@@ -43,7 +43,7 @@
 </script>
 
 <div class="row">
-  <button class="mute" onclick={toggleMute} aria-pressed={playback?.mute === true} title="Mute">
+  <button class={playback?.mute ? "muted" : "mute"} onclick={toggleMute} aria-pressed={playback?.mute === true} title="{playback?.mute ? 'muted' : 'Mute'}">
     {playback?.mute ? '🔇' : '🔊'}
   </button>
   <input
@@ -77,5 +77,9 @@
   }
   .mute[aria-pressed='true'] {
     border-color: var(--danger);
+  }
+  .muted {
+    background-color: var(--danger);
+    opacity: 0.75;
   }
 </style>
