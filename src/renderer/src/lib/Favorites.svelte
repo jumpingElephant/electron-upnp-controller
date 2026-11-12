@@ -8,6 +8,10 @@
   let items = $state<Favorite[]>([]);
   let loading = $state(false);
   let error = $state('');
+
+  let loadedKey = ''; // arguments to currenlty displayed target/source-combination
+  let requestId = 0;
+
   let playing = $state<string | null>(null);
 
   $effect(() => {
@@ -19,15 +23,31 @@
     void load(target, source);
   });
 
-  async function load(_t: string, src: string) {
-    loading = true;
-    error = '';
-    const r = await window.raumfeld.listFavorites(src);
-    loading = false;
-    if (r.ok) items = r.value;
-    else {
+  async function load(t: string, src: string) {
+    const key = `${t}|${src}`;
+    const id = ++requestId;
+    const switching = key !== loadedKey;
+    console.log('Loading favorites', key);
+
+    if (switching) {
+      loading = true;
       items = [];
-      error = r.error;
+      error = '';
+    }
+
+    const r = await window.raumfeld.listFavorites(src);
+
+    if (id !== requestId) return; // a new request is running
+
+    loading = false;
+    if (r.ok) {
+      items = r.value;
+      error = '';
+      loadedKey = key;
+    } else if (switching) {
+      error = r.error; // first load failed
+    } else {
+      error = r.error; // Refresh failed: old list remains visible
     }
   }
 
@@ -43,13 +63,17 @@
   <div class="head">
     <h2>Favorites</h2>
     <select bind:value={source} aria-label="Favorites list">
-      {#each sources as s (s.id)}<option value={s.id}>{s.title}</option>{/each}
+      {#each sources as s (s.id)}
+        <option value={s.id}>{s.title}</option>
+      {/each}
     </select>
   </div>
+  {#if error}
+    <p class="error">{error}</p>
+  {/if}
+
   {#if loading}
     <p class="muted">Loading…</p>
-  {:else if error}
-    <p class="error">{error}</p>
   {:else if items.length === 0}
     <p class="muted">Nothing here yet. Add favorites in the Teufel Raumfeld app.</p>
   {:else}
@@ -61,7 +85,9 @@
               alt=""
               loading="lazy"
               referrerpolicy="no-referrer"
-            />{:else}<div class="ph">♪</div>{/if}
+            />{:else}
+            <div class="ph">♪</div>
+          {/if}
           <span>{f.title}</span>
         </button>
       {/each}
@@ -76,14 +102,17 @@
     align-items: center;
     margin-bottom: 8px;
   }
+
   .head h2 {
     margin: 0;
   }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
     gap: 10px;
   }
+
   .tile {
     display: flex;
     flex-direction: column;
@@ -91,9 +120,11 @@
     padding: 6px;
     text-align: left;
   }
+
   .tile.busy {
     opacity: 0.5;
   }
+
   img,
   .ph {
     width: 100%;
@@ -102,12 +133,14 @@
     border-radius: 6px;
     background: var(--border);
   }
+
   .ph {
     display: grid;
     place-items: center;
     font-size: 28px;
     color: var(--muted);
   }
+
   span {
     font-size: 12px;
     overflow: hidden;
